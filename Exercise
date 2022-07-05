@@ -1,0 +1,48 @@
+-- -------------------------------------Return all product------------------------------- 
+-- ------------------------------#name,#unitprice,#new price (unitprice * 1.1)----------- 
+
+
+USE sql_inventory; #database_name 
+Select 
+   name,
+   unit_price,
+   unit_price * 1.1 AS "New Price"
+   From
+sql_inventory.products; #table_name 
+
+
+
+-- --------------------From the other_items table, get the items -----------------
+-- ------------------------------for order #6 -----------------------------------
+-- -------------------where the total price is greater than 30-------------------
+
+
+USE SQL_Store; #database_name
+SELECT 
+    *
+FROM
+    Sql_store.order_items #table_name
+WHERE
+    Order_id = 6 AND unit_price * quantity  > 20;
+    
+    
+    
+ -- -------------Return the product with quantity in stock equal to 49,38,72-----------
+ 
+ 
+USE SQL_store;
+SELECT *
+FROM sql_store.products  
+ WHERE
+ Quantity_in_Stock IN (49,38,72); 
+ 
+ 
+ -- -----------------------Return customers born-------------------------------
+-- ---------------------- between 1/1/1990 and 1/1/2000 ------------------------
+ 
+ 
+USE SQL_store; 
+select *
+FROM customers
+where
+birth_date between '1990/01/01' and '2000/01/01'; 
